@@ -4,25 +4,23 @@ layout: tutorial_hands_on
 title: 'From reads to (pseudo) counts : guided step by step exploration'
 zenodo_link: https://doi.org/10.5281/zenodo.10652085
 questions:
-- Which biological questions are addressed by the tutorial?
-- Which bioinformatics techniques are important to know for this type of data?
+- How to go from FASTA mRNA sequences to the study of differential gene expression?
+- How to manage isoforms and polymorphism?
 objectives:
-- The learning objectives are the goals of the tutorial
-- They will be informed by your audience and will communicate to them and to yourself
-  what you should focus on during the course
-- They are single sentences describing what a learner should be able to do once they
-  have completed the tutorial
-- You can use Bloom's Taxonomy to write effective learning objectives
-time_estimation: 3H
+- An overview of RNA-seq data analysis steps
+- Identify the (key issues/points) (critical steps/parameters)
+- Introduction to assembly and (pseudo)counting tools
+time_estimation: 8H
 key_points:
-- The take-home messages
-- They will appear at the end of the tutorial
+  This course will NOT allow you to design an analysis pipeline set-up for your specific needs
+- This course WILL give you the basis information to understand and run a generic RNA-seq analysis, its key steps and problematics, and how to interact with bioinformaticians/bioanalysts that can analyze your RNA-seq datasets
 contributors:
-- contributor1
-- contributor2
-
+  authorship:
+    -
+    -
+  editing:
+    - agathebq
 ---
-
 
 # Introduction
 
