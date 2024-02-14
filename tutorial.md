@@ -489,6 +489,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 > > 2. 115 contigs
 > > 
 >  {: .solution}
+> 
 {: .question}
 
 ## Assembly and contig visualization with BLAT
@@ -538,6 +539,7 @@ To visualize Trinity contigs, we will use the BLAT tool from UCSC. Even though i
 > >    - **Is your contig appearing in annotations?** Yes
 > > 
 >  {: .solution}
+> 
 {: .question}
 
 > <comment-title>To go further with assembly...</comment-title>
