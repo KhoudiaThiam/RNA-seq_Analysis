@@ -12,9 +12,14 @@ objectives:
 - Introduction to assembly and (pseudo)counting tools
 time_estimation: 8H
 key_points:
-  This course will NOT allow you to design an analysis pipeline set-up for your specific needs
+- This course will NOT allow you to design an analysis pipeline set-up for your specific needs
 - This course WILL give you the basis information to understand and run a generic RNA-seq analysis, its key steps and problematics, and how to interact with bioinformaticians/bioanalysts that can analyze your RNA-seq datasets
-contributors:
+supporting_materials:
+  available_on_these_galaxies:
+    known_working:
+      - UseGalaxy.fr
+      - UseGalaxy.fr   
+contributions:
   authorship:
     -
     -
@@ -23,31 +28,6 @@ contributors:
 ---
 
 # Introduction
-
-<!-- This is a comment. -->
-
-General introduction about the topic and then an introduction of the
-tutorial (the questions and the objectives). It is nice also to have a
-scheme to sum up the pipeline used during the tutorial. The idea is to
-give to trainees insight into the content of the tutorial and the (theoretical
-and technical) key concepts they will learn.
-
-You may want to cite some publications; this can be done by adding citations to the
-bibliography file (`tutorial.bib` file next to your `tutorial.md` file). These citations
-must be in bibtex format. If you have the DOI for the paper you wish to cite, you can
-get the corresponding bibtex entry using [doi2bib.org](https://doi2bib.org).
-
-With the example you will find in the `tutorial.bib` file, you can add a citation to
-this article here in your tutorial like this:
-{% raw %} `{% cite Batut2018 %}`{% endraw %}.
-This will be rendered like this: {% cite Batut2018 %}, and links to a
-[bibliography section](#bibliography) which will automatically be created at the end of the
-tutorial.
-
-
-**Please follow our
-[tutorial to learn how to fill the Markdown]({{ site.baseurl }}/topics/contributing/tutorials/create-new-tutorial-content/tutorial.html)**
-
 > <agenda-title></agenda-title>
 >
 > In this tutorial, we will cover:
@@ -56,6 +36,44 @@ tutorial.
 > {:toc}
 >
 {: .agenda}
+
+We chose D. melanogaster for its relatively small genome (to scale for the time/memory requirements of our experiments), for its ability to produce alternative isoforms (as a Eukaryota), and because it is a well-known species: a reference genome is available.
+This is where we got the data: https://www.ncbi.nlm.nih.gov/sra/SRX675217
+
+![ncbi D. melanogaster screenshot](./image/ncbi.jpeg)
+
+ <question-title></question-title>
+
+> 1. Write here the characteristics of the complete sequencing dataset:
+>    
+>    ●	Run accession id
+>    
+>    ●	Sequencing technology
+>    
+>    ●	Library preparation
+>    
+>    ●	Single / Paired-end ?
+>    
+>    ●	Number of reads 
+
+> > <solution-title></solution-title>
+
+> >     ●	Run accession id: SRX675217
+> >     ●	Sequencing technology: Illumina HiSeq 2000
+> >     ●	Library preparation: RNA-seq (cDNA)
+> >     ●	Single / Paired-end ?:  Single
+> >     ●	Number of reads: 10.4M
+
+> {: .solution}
+
+{: .question}
+
+For this practical workshop, we built a reduced dataset (11421 SE reads):
+1.	9 regions of interest from the 2L chromosome were selected
+2.	Reads that aligned onto those regions were extracted (= 7245 reads)
+3.	Reads with adapter sequences were added (+ 2176 reads)
+4.	rRNA reads were added (+ 2000 reads)
+
 
 # Title for your first section
 
