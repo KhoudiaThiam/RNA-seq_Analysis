@@ -245,47 +245,6 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
-## Sub-step with **Filter with SortMeRNA**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Filter with SortMeRNA](toolshed.g2.bx.psu.edu/repos/rnateam/sortmerna/bg_sortmerna/2.1b.6) %} with the following parameters:
->    - *"Sequencing type"*: `Reads are not paired`
->        - {% icon param-file %} *"Querying sequences"*: `fastq_out` (output of **Trimmomatic** {% icon tool %})
->    - *"Databases to query"*: `Databases from your history`
->        - {% icon param-files %} *"rRNA databases"*: `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset)
->    - *"Include aligned reads in FASTA/FASTQ format?"*: `Yes (--fastx)`
->        - *"Include rejected reads file?"*: `Yes`
->    - *"Generate statistics file"*: `Yes`
->    - *"Alignment report"*: `Do not report alignments`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
 ## Sub-step with **MultiQC**
 
 > <hands-on-title> Task description </hands-on-title>
@@ -331,17 +290,53 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
-## Sub-step with **Trinity**
+## Sub-step with **Filter with SortMeRNA**
 
 > <hands-on-title> Task description </hands-on-title>
 >
-> 1. {% tool [Trinity](toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/2.15.1+galaxy1) %} with the following parameters:
->    - *"Are you pooling sequence datasets?"*: `Yes`
->        - *"Paired or Single-end data?"*: `Single-end`
->            - {% icon param-file %} *"Single-end reads"*: `output_other` (output of **Filter with SortMeRNA** {% icon tool %})
->            - *"Strand specific data"*: `No`
->    - In *"Additional Options"*:
->        - *"Use the genome guided mode?"*: `No`
+> 1. {% tool [Filter with SortMeRNA](toolshed.g2.bx.psu.edu/repos/rnateam/sortmerna/bg_sortmerna/2.1b.6) %} with the following parameters:
+>    - *"Sequencing type"*: `Reads are not paired`
+>        - {% icon param-file %} *"Querying sequences"*: `fastq_out` (output of **Trimmomatic** {% icon tool %})
+>    - *"Databases to query"*: `Databases from your history`
+>        - {% icon param-files %} *"rRNA databases"*: `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset)
+>    - *"Include aligned reads in FASTA/FASTQ format?"*: `Yes (--fastx)`
+>        - *"Include rejected reads file?"*: `Yes`
+>    - *"Generate statistics file"*: `Yes`
+>    - *"Alignment report"*: `Do not report alignments`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **FastQC**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [FastQC](toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.74+galaxy0) %} with the following parameters:
+>    - {% icon param-file %} *"Raw read data from your current history"*: `output_other` (output of **Filter with SortMeRNA** {% icon tool %})
 >
 >    ***TODO***: *Check parameter descriptions*
 >
@@ -419,12 +414,90 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
-## Sub-step with **FastQC**
+## Sub-step with **featureCounts**
 
 > <hands-on-title> Task description </hands-on-title>
 >
-> 1. {% tool [FastQC](toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.74+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"Raw read data from your current history"*: `output_other` (output of **Filter with SortMeRNA** {% icon tool %})
+> 1. {% tool [featureCounts](toolshed.g2.bx.psu.edu/repos/iuc/featurecounts/featurecounts/2.0.3+galaxy2) %} with the following parameters:
+>    - {% icon param-file %} *"Alignment file"*: `output_alignments` (output of **HISAT2** {% icon tool %})
+>    - *"Gene annotation file"*: `A GFF/GTF file in your history`
+>        - {% icon param-file %} *"Gene annotation file"*: `output` (Input dataset)
+>    - *"Does the input have read pairs?"*: `No, single-end.`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **Filter**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Filter](Filter1) %} with the following parameters:
+>    - {% icon param-file %} *"Filter"*: `output_short` (output of **featureCounts** {% icon tool %})
+>    - *"With following condition"*: `c2>=10`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
+
+## Sub-step with **StringTie**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [StringTie](toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie/2.1.1) %} with the following parameters:
+>    - {% icon param-file %} *"Input mapped reads"*: `output_alignments` (output of **HISAT2** {% icon tool %})
+>    - *"Use a reference file to guide assembly?"*: `Use reference GTF/GFF3`
+>        - *"Reference file"*: `Use a file from history`
+>            - {% icon param-file %} *"GTF/GFF3 dataset to guide assembly"*: `output` (Input dataset)
+>        - *"Output files for differential expression?"*: `DESeq2/edgeR/limma-voom`
+>    - In *"Advanced Options"*:
+>        - *"Output gene abundance estimation file?"*: `Yes`
 >
 >    ***TODO***: *Check parameter descriptions*
 >
@@ -495,83 +568,6 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
-## Sub-step with **StringTie**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [StringTie](toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie/2.1.1) %} with the following parameters:
->    - {% icon param-file %} *"Input mapped reads"*: `output_alignments` (output of **HISAT2** {% icon tool %})
->    - *"Use a reference file to guide assembly?"*: `Use reference GTF/GFF3`
->        - *"Reference file"*: `Use a file from history`
->            - {% icon param-file %} *"GTF/GFF3 dataset to guide assembly"*: `output` (Input dataset)
->        - *"Output files for differential expression?"*: `DESeq2/edgeR/limma-voom`
->    - In *"Advanced Options"*:
->        - *"Output gene abundance estimation file?"*: `Yes`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **featureCounts**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [featureCounts](toolshed.g2.bx.psu.edu/repos/iuc/featurecounts/featurecounts/2.0.3+galaxy2) %} with the following parameters:
->    - {% icon param-file %} *"Alignment file"*: `output_alignments` (output of **HISAT2** {% icon tool %})
->    - *"Gene annotation file"*: `A GFF/GTF file in your history`
->        - {% icon param-file %} *"Gene annotation file"*: `output` (Input dataset)
->    - *"Does the input have read pairs?"*: `No, single-end.`
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
 ## Sub-step with **Cut**
 
 > <hands-on-title> Task description </hands-on-title>
@@ -579,41 +575,6 @@ A big step can have several subsections or sub steps:
 > 1. {% tool [Cut](Cut1) %} with the following parameters:
 >    - *"Cut columns"*: `c1,c5`
 >    - {% icon param-file %} *"From"*: `output_gene_quant` (output of **Salmon quant** {% icon tool %})
->
->    ***TODO***: *Check parameter descriptions*
->
->    ***TODO***: *Consider adding a comment or tip box*
->
->    > <comment-title> short description </comment-title>
->    >
->    > A comment about the tool or something else. This box can also be in the main text
->    {: .comment}
->
-{: .hands_on}
-
-***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
-
-> <question-title></question-title>
->
-> 1. Question1?
-> 2. Question2?
->
-> > <solution-title></solution-title>
-> >
-> > 1. Answer for question1
-> > 2. Answer for question2
-> >
-> {: .solution}
->
-{: .question}
-
-## Sub-step with **Filter**
-
-> <hands-on-title> Task description </hands-on-title>
->
-> 1. {% tool [Filter](Filter1) %} with the following parameters:
->    - {% icon param-file %} *"Filter"*: `output_short` (output of **featureCounts** {% icon tool %})
->    - *"With following condition"*: `c2>=10`
 >
 >    ***TODO***: *Check parameter descriptions*
 >
@@ -715,6 +676,44 @@ A big step can have several subsections or sub steps:
 >
 {: .question}
 
+## Sub-step with **Trinity**
+
+> <hands-on-title> Task description </hands-on-title>
+>
+> 1. {% tool [Trinity](toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/2.15.1+galaxy1) %} with the following parameters:
+>    - *"Are you pooling sequence datasets?"*: `Yes`
+>        - *"Paired or Single-end data?"*: `Single-end`
+>            - {% icon param-file %} *"Single-end reads"*: `output_other` (output of **Filter with SortMeRNA** {% icon tool %})
+>            - *"Strand specific data"*: `No`
+>    - In *"Additional Options"*:
+>        - *"Use the genome guided mode?"*: `No`
+>
+>    ***TODO***: *Check parameter descriptions*
+>
+>    ***TODO***: *Consider adding a comment or tip box*
+>
+>    > <comment-title> short description </comment-title>
+>    >
+>    > A comment about the tool or something else. This box can also be in the main text
+>    {: .comment}
+>
+{: .hands_on}
+
+***TODO***: *Consider adding a question to test the learners understanding of the previous exercise*
+
+> <question-title></question-title>
+>
+> 1. Question1?
+> 2. Question2?
+>
+> > <solution-title></solution-title>
+> >
+> > 1. Answer for question1
+> > 2. Answer for question2
+> >
+> {: .solution}
+>
+{: .question}
 
 ## Re-arrange
 
