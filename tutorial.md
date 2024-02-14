@@ -498,10 +498,19 @@ To visualize Trinity contigs, we will use the BLAT tool from UCSC. Even though i
 > <hands-on-title> Here’s a small how-to: </hands-on-title>
 >
 > 1. Copy the sequence you want to visualize.
-> 2. Paste it in the BLAT field at UCSC’s website (https://genome.ucsc.edu in your web browser), then check the parameters (genome)
-> 3. Compute the contig to genome alignment using Submit
-> 4. Select the most suited alignment if there are several of them. To do so, not only you will check the IDENTITY, but also START, END, QSIZE results
 >    
+> 3. Paste it in the BLAT field at UCSC’s website (https://genome.ucsc.edu in your web browser), then check the parameters (genome)
+>    
+> ![BLAT toolbar screenshot](./image/blat1.jpg)
+> 
+> 4. Compute the contig to genome alignment using Submit
+> 
+> ![BLAT tool interface screenshot](./image/blat2.png)
+> 
+> 6. Select the most suited alignment if there are several of them. To do so, not only you will check the IDENTITY, but also START, END, QSIZE results
+>    
+> ![BLAT result example screenshot](./image/blat3.jpg)
+>
 {: .hands_on}
 
 > <question-title> Question about contigs visualization </question-title>
