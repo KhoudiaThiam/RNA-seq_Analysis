@@ -187,7 +187,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 > 4. What can you say about the read lengths?
 > 5. Are there any adapter sequences left? 
 >
-> > <solution-title></solution-title>
+> > <solution-title>Solution</solution-title>
 > >
 > > 1. 9946 reads
 > > 2. Better quality for cleaned data
@@ -230,7 +230,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 > 4. Looking at SortMeRNA logs, what can you say about the taxonomic composition of this sample?
 > 5. Was this a helpful step? Try to think ahead and imagine a scenario in which removing the rRNA sequences would greatly simplify or improve the downstream analysis?
 >
-> > <solution-title></solution-title>
+> > <solution-title> Solution </solution-title>
 > >
 > > 1. Unaligned reads
 > > 2. 7727 reads
@@ -287,12 +287,12 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >
 {: .hands_on}
 
-> <question-title>Question</question-title>
+> <question-title> Question </question-title>
 >
 > 1. How many reads were mapped? 
 > 2. How many reads have multiple alignments? 
 >
-> > <solution-title>Solution</solution-title>
+> > <solution-title> Solution </solution-title>
 > >
 > > 1. 9.74% (58 + 7396)
 > > 2. 58 reads
@@ -326,7 +326,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >    
 {: .hands_on}
 
-> <question-title>Question</question-title>
+> <question-title> Question </question-title>
 >
 > 1. How many reads were:
 >    ●	used to count gene expression? 
@@ -344,7 +344,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 > >   - *"Number of header lines to skip"*: `0`
 >    {: .tip}
 >
-> > <solution-title></solution-title>
+> > <solution-title> Solution </solution-title>
 > >
 > > 1. ●	used to count gene expression? 5705
 > >    ●	excluded because of mapping quality? 0
@@ -376,14 +376,14 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >
 {: .hands_on}
 
-> <question-title>Question</question-title>
+> <question-title> Question </question-title>
 >
 > 1. How many transcripts were assembled by StringTie? 
 > 2. How many genes do these transcripts represent?
 > 3. Where are these genes located? What do you think about it?
 > 4. How many genes are supported by at least 10 reads? 
 >
-> > <solution-title></solution-title>
+> > <solution-title> Solution </solution-title>
 > >
 > > 1. 24 transcripts
 > > 2. 13 genes
@@ -436,14 +436,14 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >
 {: .hands_on}
 
-> <question-title>Question</question-title>
+> <question-title> Question </question-title>
 >
 > 1. According to Salmon, how many genes are expressed at all? 
 > 2. Why Salmon quantification files cannot be called “count” files?
 > 3. What can you tell about the gene expression values estimated by mapping vs. pseudo-mapping?
 > 4. Why do you think Salmon identifies more genes expressed than the mapping pipeline? 
 >
-> > <solution-title></solution-title>
+> > <solution-title> Solution </solution-title>
 > >
 > > 1. 17 genes.
 > > 2. quantify the abundance of reads and do not count (float).
@@ -482,7 +482,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >     ●	The read bank: is non-stranded.
 > 2. When Trinity is finished, how many contigs are output?
 > 
-> >  <solution-title></solution-title>
+> >  <solution-title> Solution </solution-title>
 > > 
 > > 1. ●	Reads are single-end: `Paired or Single-end data?`
 > >    ●	The read bank: is non-stranded: `Strand specific data.`
@@ -524,7 +524,7 @@ To visualize Trinity contigs, we will use the BLAT tool from UCSC. Even though i
 >    - How many exons are included in your contigs?
 >    - Is your contig appearing in annotations?
 > 
-> >  <solution-title>Solution</solution-title>
+> >  <solution-title> Solution </solution-title>
 > > 
 > > 1. - **START**: start of the alignment of our contig.
 > >    - **END**: end of the alignment of our contig.
