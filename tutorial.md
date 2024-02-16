@@ -99,7 +99,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 > <hands-on-title> Run FastQC on the raw dataset </hands-on-title>
 >
 > {% tool [FastQC](toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.74+galaxy0) %} with the following parameters:
->    - {% icon param-file %} *"Raw read data from your current history"*: `output` (Input dataset)
+>    - {% icon param-file %} *"Raw read data from your current history"*: `SRR1543719.sample.fastqsanger`
 {: .hands_on}
 
 > <question-title>Question</question-title>
@@ -125,7 +125,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >
 > 1. {% tool [Trimmomatic](toolshed.g2.bx.psu.edu/repos/pjbriggs/trimmomatic/trimmomatic/0.38.1) %} with the following parameters:
 >    - *"Single-end or paired-end reads?"*: `Single-end`
->        - {% icon param-file %} *"Input FASTQ file"*: `output` (Input dataset)
+>        - {% icon param-file %} *"Input FASTQ file"*: `SRR1543719.sample.fastqsanger`
 >    - *"Perform initial ILLUMINACLIP step?"*: `Yes`
 >    - In *"Trimmomatic Operation"*:
 >        - {% icon param-repeat %} *"Insert Trimmomatic Operation"*
@@ -137,6 +137,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >            - *"Select Trimmomatic operation to perform"*: `Drop reads below a specified length (MINLEN)`
 >                - *"Minimum length of reads to be kept"*: `50`
 >    - *"Output trimmomatic log messages?"*: `Yes`
+>      
 > 2. Rename the cleaned dataset “SRR1543719.sample.trimmomatic.fq”
 {: .hands_on}
 
@@ -209,7 +210,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >    - *"Sequencing type"*: `Reads are not paired`
 >        - {% icon param-file %} *"Querying sequences"*: `fastq_out` (output of **Trimmomatic** {% icon tool %})
 >    - *"Databases to query"*: `Databases from your history`
->        - {% icon param-files %} *"rRNA databases"*: `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset), `output` (Input dataset)
+>        - {% icon param-files %} *"rRNA databases"*: `silva-euk-28s-id98.fasta`, `silva-euk-18s-id95.fasta`, `silva-bac-23s-id98.fasta`, `silva-bac-16s-id90.fasta`, `silva-arc-23s-id98.fasta`, `silva-arc-16s-id95.fasta`, `rfam-5s-database-id98.fasta`, `rfam-5.8s-database-id98.fasta`
 >    - *"Include aligned reads in FASTA/FASTQ format?"*: `Yes (--fastx)`
 >        - *"Include rejected reads file?"*: `Yes`
 >    - *"Generate statistics file"*: `Yes`
@@ -267,21 +268,12 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >
 > 1. {% tool [HISAT2](toolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/2.2.1+galaxy1) %} with the following parameters:
 >    - *"Source for the reference genome"*: `Use a genome from history`
->        - {% icon param-file %} *"Select the reference genome"*: `output` (Input dataset)
+>        - {% icon param-file %} *"Select the reference genome"*: `D_melanogaster.BDGP6.22.dna.toplevel.fa` 
 >    - *"Is this a single or paired library"*: `Single-end`
 >        - {% icon param-file %} *"FASTA/Q file"*: `output_other` (output of **Filter with SortMeRNA** {% icon tool %})
 >    - In *"Summary Options"*:
 >        - *"Output alignment summary in a more machine-friendly style."*: `Yes`
 >        - *"Print alignment summary to a file."*: `Yes`
->    - In *"Advanced Options"*:
->        - *"Input options"*: `Use default values`
->        - *"Alignment options"*: `Use default values`
->        - *"Scoring options"*: `Use default values`
->        - *"Spliced alignment options"*: `Use default values`
->        - *"Reporting options"*: `Use default values`
->        - *"Output options"*: `Use default values`
->        - *"SAM options"*: `Use default values`
->        - *"Other options"*: `Use default values`
 >          
 > 2. Rename the BAM file “SRR1543719.sample.cleaned.hisat2.bam”
 >
@@ -310,7 +302,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 > 1. {% tool [featureCounts](toolshed.g2.bx.psu.edu/repos/iuc/featurecounts/featurecounts/2.0.3+galaxy2) %} with the following parameters:
 >    - {% icon param-file %} *"Alignment file"*: `output_alignments` (output of **HISAT2** {% icon tool %})
 >    - *"Gene annotation file"*: `A GFF/GTF file in your history`
->        - {% icon param-file %} *"Gene annotation file"*: `output` (Input dataset)
+>        - {% icon param-file %} *"Gene annotation file"*: `D_melanogaster.BDGP6.22.96.gtf`
 >    - *"Output format"*: `Gene-ID "\t" read-count (MultiQC/DESeq2/edgeR/limma-voom compatible)`
 >    - *"Does the input have read pairs?"*: `No, single-end.`
 >
@@ -365,7 +357,7 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >    - {% icon param-file %} *"Input mapped reads"*: `output_alignments` (output of **HISAT2** {% icon tool %})
 >    - *"Use a reference file to guide assembly?"*: `Use reference GTF/GFF3`
 >        - *"Reference file"*: `Use a file from history`
->            - {% icon param-file %} *"GTF/GFF3 dataset to guide assembly"*: `output` (Input dataset)
+>            - {% icon param-file %} *"GTF/GFF3 dataset to guide assembly"*:`D_melanogaster.BDGP6.22.96.gtf`
 >        - *"Output files for differential expression?"*: `DESeq2/edgeR/limma-voom`
 >    - In *"Advanced Options"*:
 >        - *"Output gene abundance estimation file?"*: `Yes`
@@ -404,7 +396,8 @@ For this practical workshop, we built a reduced dataset (11421 SE reads):
 >    - *"Select salmon quantification mode:"*: `Reads`
 >        - *"Select a reference transcriptome from your history or use a built-in index?"*: `Use one from the history`
 >            - In *"Salmon index"*:
->                - {% icon param-file %} *"Reference genome"*: `output` (Input dataset)
+>                - {% icon param-file %} *"Transcripts FASTA file"*: `D_melanogaster.BDGP6.22.cdna.all.fa`
+>                - {% icon param-file % *"Reference genome"* : `D_melanogaster.BDGP6.22.dna.toplevel.fa`
 >        - In *"Data input"*:
 >            - *"Is this library mate-paired?"*: `Single-end`
 >                - {% icon param-file %} *"FASTQ/FASTA file"*: `output_other` (output of **Filter with SortMeRNA** {% icon tool %})
