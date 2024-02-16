@@ -21,10 +21,12 @@ supporting_materials:
       - UseGalaxy.fr   
 contributions:
   authorship:
-    -
-    -
+    - kamimrcht
+    - ppericard
   editing:
     - agathebq
+    - boucherblandine
+    - KhoudiaThiam
 ---
 
 > <agenda-title></agenda-title>
